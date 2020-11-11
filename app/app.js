@@ -1,8 +1,21 @@
-let knightApp = angular.module('knightApp', [])
+let knightApp = angular.module('knightApp', ['ngRoute']);
 
-// knightApp.config(function(){
+knightApp.config(['$routeProvider', function ($routeProvider) {
+    $routeProvider
+        .when('/home', {
+            templateUrl: 'views/home.html'
+        })
+        .when('/directory', {
+            templateUrl: 'views/directory.html',
+            controller: 'KnightController'
+        })
+        .otherwise({
+            redirectTo: '/home'
+        })
 
-// });
+}])
+
+// knightApp.config();
 
 // knightApp.run(function(){
 
