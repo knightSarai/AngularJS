@@ -3,7 +3,8 @@ let knightApp = angular.module('knightApp', ['ngRoute']);
 knightApp.config(['$routeProvider', function ($routeProvider) {
     $routeProvider
         .when('/home', {
-            templateUrl: 'views/home.html'
+            templateUrl: 'views/home.html',
+            controller: 'KnightController'
         })
         .when('/directory', {
             templateUrl: 'views/directory.html',
@@ -13,6 +14,21 @@ knightApp.config(['$routeProvider', function ($routeProvider) {
             redirectTo: '/home'
         })
 
+}])
+
+knightApp.directive('randomPerson', [() => {
+    return {
+        restrict: 'E',
+        scope: {
+            persons: '=',
+            title: '='
+        },
+        templateUrl: 'views/random.html',
+        controller: ($scope) => {
+            $scope.random = Math.floor(Math.random() * 4);
+
+        }
+    };
 }])
 
 // knightApp.run(function(){
