@@ -1,0 +1,20 @@
+[
+    {
+        "name": "knight",
+        "money": 500,
+        "status": "in relation two ways",
+        "available": true
+    },
+    {
+        "name": "sarah",
+        "money": 350,
+        "status": "in relation on way",
+        "available": true
+    },
+    {
+        "name": "ward",
+        "money": 0,
+        "status": "in relation one way",
+        "available": false
+    }
+]

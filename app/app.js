@@ -15,13 +15,11 @@ knightApp.config(['$routeProvider', function ($routeProvider) {
 
 }])
 
-// knightApp.config();
-
 // knightApp.run(function(){
 
 // });
 
-function knightContFunc($scope) {
+function knightContFunc($scope, $http) {
     $scope.message = "knight";
     $scope.removePerson = (person) => {
         $scope.persons = $scope.persons.filter(p => p !== person)
@@ -38,26 +36,11 @@ function knightContFunc($scope) {
         $scope.newPerson.money = '';
         $scope.newPerson.status = '';
     }
-    $scope.persons = [
-        {
-            name: 'knight',
-            money: 500,
-            status: 'in relation two ways',
-            available: true
-        },
-        {
-            name: 'sarah',
-            money: 350,
-            status: 'in relation on way',
-            available: true
-        },
-        {
-            name: 'ward',
-            money: 0,
-            status: 'in relation one way',
-            available: false
-        }
-    ]
+    $http
+        .get('data/persons.json')
+        .then(res => $scope.persons = res.data)
+
+
 }
 
-knightApp.controller('KnightController', ['$scope', knightContFunc]);
+knightApp.controller('KnightController', ['$scope', '$http', knightContFunc]);
