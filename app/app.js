@@ -25,7 +25,7 @@ knightApp.directive('randomPerson', [() => {
         },
         templateUrl: 'views/random.html',
         controller: ($scope) => {
-            $scope.random = Math.floor(Math.random() * 4);
+            $scope.random = Math.floor(Math.random() * 3);
 
         }
     };
