@@ -1,4 +1,5 @@
 <div class="content">
+    {{appName}}
     <form ng-submit="addNewPerson()">
         <input type="text" placeholder="name" ng-model="newPerson.name">
         <p ng-if="newPerson.name.length < charachters">must be more than {{charachters}} charachters</p>

@@ -35,7 +35,12 @@ knightApp.directive('randomPerson', [() => {
 
 // });
 
-function knightContFunc($scope, $http) {
+knightApp.service('appName', function () {
+    this.name = 'knight'
+})
+
+function knightContFunc($scope, $http, appName) {
+    // $scope.appName = appName.name;
     $scope.charachters = 5;
     $scope.removePerson = (person) => {
         $scope.persons = $scope.persons.filter(p => p !== person)
@@ -59,4 +64,4 @@ function knightContFunc($scope, $http) {
 
 }
 
-knightApp.controller('KnightController', ['$scope', '$http', knightContFunc]);
+knightApp.controller('KnightController', ['$scope', '$http', 'appName', knightContFunc]);
