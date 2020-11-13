@@ -36,7 +36,7 @@ knightApp.directive('randomPerson', [() => {
 // });
 
 function knightContFunc($scope, $http) {
-    $scope.message = "knight";
+    $scope.charachters = 5;
     $scope.removePerson = (person) => {
         $scope.persons = $scope.persons.filter(p => p !== person)
     }

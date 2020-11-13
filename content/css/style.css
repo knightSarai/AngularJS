@@ -118,3 +118,8 @@ body{
     cursor: pointer;
     margin-left: 10px;
   }
+
+  .warning {
+    color: red;
+    border: 2px solid red;
+  }

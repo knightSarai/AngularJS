@@ -1,5 +1,12 @@
 <div class="content">
-    <input type="text" ng-model="search">
+    <form ng-submit="addNewPerson()">
+        <input type="text" placeholder="name" ng-model="newPerson.name">
+        <p ng-if="newPerson.name.length < charachters">must be more than {{charachters}} charachters</p>
+        <input type="text" placeholder="money" ng-model="newPerson.money">
+        <input type="text" placeholder="status" ng-model="newPerson.status">
+        <input type="submit" value="Add New Person">
+    </form>
+    <input type="text" ng-model="search" placeholder="search">
     <ul>
         <li ng-repeat="person in persons | orderBy: '-money' | filter: search" ng-show="true">
             {{person.name}} - {{person.money | currency: "JOD"}}
@@ -7,10 +14,4 @@
             <span>{{person.status}}</span>
         </li>
     </ul>
-    <form ng-submit="addNewPerson()">
-        <input type="text" placeholder="name" ng-model="newPerson.name">
-        <input type="text" placeholder="money" ng-model="newPerson.money">
-        <input type="text" placeholder="status" ng-model="newPerson.status">
-        <input type="submit" value="Add New Person">
-    </form>
 </div>
